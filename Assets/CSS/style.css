@@ -1,0 +1,45 @@
+
+
+#header {
+    margin: auto;
+    width: 80%;
+    margin-top: 30px;
+    
+}
+
+#title {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border: 10px double black;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+
+#GIF_buttons {
+    margin: auto;
+    height: auto;
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.topic {
+    margin: 5px;
+}
+
+#GIF_area {
+    height: auto;
+    padding: 10px;
+    display: inline-block;
+}
+
+.gif, p {
+    padding: 10px;
+}
+
+#new_input, #add_topic, #form_label {
+    margin: 10px;
+}
+
