@@ -15,11 +15,14 @@ $(document).ready(function() {
         event.preventDefault();
         var newTopic = $("#new_input").val().trim();
         topicArray.push(newTopic);
+        console.log(topicArray);
+        $("#GIF_buttons").empty();
 
         renderButtons();
 
     })
     renderButtons();
+    console.log(topicArray);
 
     $("button").on("click", function () {
         var searchTerm = $(this).attr("data-name");
@@ -39,9 +42,9 @@ $(document).ready(function() {
                 var p = $("<p>").text("Rating: " + results[i].rating);
                 var topicImage = $("<img>");
 
-                topicImage.attr("src", results[i].images.fixed_height_still.url);
-                topicImage.attr("data-still", results[i].images.fixed_height_still.url);
-                topicImage.attr("data-animate", results[i].images.fixed_height.url);
+                topicImage.attr("src", results[i].images.original_still.url);
+                topicImage.attr("data-still", results[i].images.original_still.url);
+                topicImage.attr("data-animate", results[i].images.original.url);
                 topicImage.attr("data-state", "still");
                 topicImage.addClass("gif");
 
@@ -49,19 +52,18 @@ $(document).ready(function() {
                 topicDiv.append(p);
 
                 $("#GIF_area").prepend(topicDiv);
-                console.log("data-still");
             };
         });
 
-        $("img").on("click", function() {
+        $(".gif").on("click", function() {
             var state = $(this).attr("data-state");
             console.log(state);
 
             if (state === "still") {
-                $(this).attr("src", $(this).attr("src",results[i].images.fixed_width.url));
+                $(this).attr("src", $(this).attr("data-animate"));
                 $(this).attr("data-state", "animate");
             } else {
-                $(this).attr("src", $(this).attr(results[i].images.fixed_width_still.url));
+                $(this).attr("src", $(this).attr("data-still"));
                 $(this).attr("data-state", "still");
             }
         })
